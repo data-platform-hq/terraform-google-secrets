@@ -9,11 +9,13 @@ Terraform module for creation Google secrets
 | ------------------------------------------------------------------------- | -------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
 | <a name="requirement_google"></a> [google](#requirement\_google)          | = 4.24.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random)          | >= 3.4.3 |
 
 ## Providers
 | Name                                                       | Version |
 | ---------------------------------------------------------- | ------- |
 | <a name="provider_google"></a> [google](#provider\_google) | 4.24.0  |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.4.3   |
 
 ## Modules
 No modules.
@@ -29,7 +31,6 @@ No modules.
 | [google_secret_manager_secret_version.sqluser_name_value](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/secret_manager_secret_version)   | resource |
 | [google_secret_manager_secret.sqluser_passwd_name](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/secret_manager_secret)                  | resource |
 | [google_secret_manager_secret_version.sqluser_passwd_value](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/secret_manager_secret_version) | resource |
-| [null_resource.sa_keys](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource)                                                            | resource |
 | [random_string.sqlroot_passwd](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)                                                     | resource |
 | [random_string.sqluser_name](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)                                                       | resource |
 | [random_string.sqluser_passwd](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)                                                     | resource |
