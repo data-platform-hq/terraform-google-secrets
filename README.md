@@ -37,32 +37,24 @@ No modules.
 
 
 ## Inputs
-| Name                                                                                      | Description                                                                | Type       | Default                                                                                                           | Required |
-| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------- | :------: |
-| <a name="input_region"></a> [region](#input\_region)                                      | The location or cloud resources region for the environment                 | `string`   | <pre><br>us-west1</pre>                                                                                           |   yes    |
-| <a name="input_project_id"></a> [project\_id](#input\_project\_id)                        | The ID of the project to which the resource belongs                        | `string`   | n/a                                                                                                               |   yes    |
-| <a name="input_project_number"></a> [project\_number](#input\_project\_number)            | The numeric identifier of the GCP project                                  | `string`   | n/a                                                                                                               |   yes    |
-| <a name="input_product_base_name"></a> [product\_base\_name](#input\_product\_base\_name) | Cloud resources base name (used to create services)                        | `string`   | n/a                                                                                                               |   yes    |
-| <a name="input_env"></a> [env](#input\_env)                                               | Variable to mark the environment of the resource (used to create services) | `string`   | <pre><br>dev</pre>                                                                                                |   yes    |
-| <a name="input_sqluser_name"></a> [sqluser\_name](#input\_sqluser\_name)                  | Username for SQL server                                                    | `string`   | n/a                                                                                                               |   yes    |
-| <a name="input_sqluser_password"></a> [sqluser\_password](#input\_sqluser\_password)      | User password for SQL Server                                               | `string`   | n/a                                                                                                               |   yes    |
-| <a name="input_sa_key"></a> [sa\_key](#input\_sa\_key)                                    | Names of secrets where service accounts keys are stored                    | `map(any)` | <pre>{<br> raw_serverless = ""<br> raw_spark      = ""<br> dp_serverless  = ""<br> dp_spark       = ""<br>}</pre> |   yes    |
+| Name                                                                                      | Description                                                                 | Type          | Default | Required |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------- | ------- | :------: |
+| <a name="input_region"></a> [region](#input\_region)                                      | The location or cloud resources region for the environment.                 | `string`      | n/a     |   yes    |
+| <a name="input_product_base_name"></a> [product\_base\_name](#input\_product\_base\_name) | Cloud resources base name (used to create services).                        | `string`      | n/a     |   yes    |
+| <a name="input_env"></a> [env](#input\_env)                                               | Variable to mark the environment of the resource (used to create services). | `string`      | n/a     |   yes    |
+| <a name="input_project_number"></a> [project\_number](#input\_project\_number)            | The numeric identifier of the GCP project.                                  | `string`      | n/a     |   yes    |
+| <a name="input_sa_key"></a> [sa\_key](#input\_sa\_key)                                    | Names (key/value pair) of secrets where service accounts keys are stored.   | `map(any)`    | n/a     |   yes    |
+| <a name="input_labels"></a> [labels](#input\_labels)                                      | The labels associated with secrets.                                         | `map(string)` | {}      |    no    |
 
 ## Outputs
-| Name                                                                                                               | Description                                                               |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| <a name="output_raw_serverless_sa_secret"></a> [raw\_serverless\_sa\_secret](#output\_raw\_serverless\_sa\_secret) | The name of secret where key for raw_serverless service account is stored |
-| <a name="output_raw_spark_secret"></a> [raw\_spark\_secret](#output\_raw\_spark\_secret)                           | The name of secret where key for raw_spark service account is stored      |
-| <a name="output_dp_serverless_secret"></a> [dp\_serverless\_secret](#output\_dp\_serverless\_secret)               | The name of secret where key for dp_serverless service account is stored  |
-| <a name="output_dp_spark_sa_secret"></a> [dp\_spark\_sa\_secret](#output\_dp\_spark\_sa\_secret)                   | The name of secret where key for dp_spark service account is stored       |
-| <a name="output_sqlroot_passwd_id"></a> [sqlroot\_passwd\_id](#output\_sqlroot\_passwd\_id)                        | The value for SQL instance root user password                             |
-| <a name="output_sqlroot_passwd_data"></a> [sqlroot\_passwd\_data](#output\_sqlroot\_passwd\_data)                  | The value for SQL instance root user password                             |
-| <a name="output_sqluser_name_id"></a> [sqluser\_name\_id](#output\_sqluser\_name\_id)                              | The id for SQL instance username id                                       |
-| <a name="output_sqluser_name"></a> [sqluser\_name](#output\_sqluser\_name)                                         | The value for SQL instance username                                       |
-| <a name="output_sqluser_name_data"></a> [sqluser\_name\_data](#output\_sqluser\_name\_data)                        | The value for SQL instance username                                       |
-| <a name="output_sqluser_passwd_id"></a> [sqluser\_passwd\_id](#output\_sqluser\_passwd\_id)                        | The value for SQL instance user password id                               |
-| <a name="output_sqluser_passwd_data"></a> [sqluser\_passwd\_data](#output\_sqluser\_passwd\_data)                  | The id for SQL instance user password                                     |
-
+| Name                                                                                                                           | Description                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
+| <a name="output_sa_key_secret"></a> [sa\_key\_secret](#output\_sa\_key\_secret)                                                | The name of secret where key for service account is stored. |
+| <a name="output_sqlroot_passwd_secrets_value"></a> [sqlroot\_passwd\_secrets\_value](#sqlroot\_passwd\_secrets\_value)         | The value for SQL instance rootuser password.               |
+| <a name="output_sqluser_name_secrets_id"></a> [sqluser\_name\_secrets\_id](#output\_sqluser\_name\_secrets\_id)                | The id for SQL instance username secret.                    |
+| <a name="output_sqluser_name_secrets_value"></a> [sqluser\_name\_secrets\_value](#output\_sqluser\_name\_secrets\_value)       | The value for SQL instance username                         |
+| <a name="output_sqluser_passwd_secrets_id"></a> [sqluser\_passwd\_secrets\_id](#output\_sqluser\_passwd\_secrets\_id)          | The id for SQL instance user password secret.               |
+| <a name="output_sqluser_passwd_secrets_value"></a> [sqluser\_passwd\_secrets\_value](#output\_sqluser\_passwd\_secrets\_value) | The value for SQL instance user password secret.            |
 <!-- END_TF_DOCS -->
 
 ## License
