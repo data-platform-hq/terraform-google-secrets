@@ -13,15 +13,9 @@ variable "env" {
   type        = string
 }
 
-variable "project_number" {
-  description = "The numeric identifier of the GCP project."
-  type        = string
-}
-
-variable "sa_key" {
-  description = "Names (key/value pair) of secrets where service accounts keys are stored."
-  type        = map(any)
-  default     = {}
+variable "secrets_input" {
+  description = "A key/value pair to create a secret. The key will be used for the secret name, the value will be stored as the secret value."
+  type        = map(string)
 }
 
 variable "labels" {
