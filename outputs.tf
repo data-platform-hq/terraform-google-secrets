@@ -11,4 +11,5 @@ output "secrets_name" {
 output "secrets_value" {
   value       = { for k, v in var.secrets_input : k => google_secret_manager_secret_version.creds_value[k].secret_data }
   description = "The value of secrets."
+  sensitive   = true
 }
