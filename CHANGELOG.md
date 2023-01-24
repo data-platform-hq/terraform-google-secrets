@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/data-platform-hq/terraform-google-secrets/compare/v1.0.0...v1.0.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* added sensitive mark for secrets_value in outputs ([7f6ba38](https://github.com/data-platform-hq/terraform-google-secrets/commit/7f6ba38311e7a2a7aaa05749c8d25153aa725b67))
+
 # 1.0.0 (2023-01-19)
 
 
