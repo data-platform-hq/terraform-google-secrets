@@ -1,6 +1,14 @@
-resource "google_secret_manager_secret" "creds" {
-  for_each  = var.secrets_input
-  secret_id = replace("${var.env}-${var.product_base_name}-${each.key}-secret", "-", "_")
+locals {
+  prefix = length(var.prefix) == 0 ? "" : "${var.prefix}-"
+  env    = length(var.env) == 0 ? "" : "${var.env}-"
+  suffix = length(var.suffix) == 0 ? "" : "-${var.suffix}"
+
+  secrets = { for secret, value in var.secrets_input : ("${local.prefix}${local.env}${secret}${local.suffix}") => value }
+}
+
+resource "google_secret_manager_secret" "this" {
+  for_each  = local.secrets
+  secret_id = each.key
   replication {
     user_managed {
       replicas {
@@ -8,11 +16,20 @@ resource "google_secret_manager_secret" "creds" {
       }
     }
   }
+  expire_time = var.expire_time
+  rotation {
+    next_rotation_time = var.next_rotation_time
+    rotation_period    = var.rotation_period
+  }
+  topics {
+    name = var.topics_name
+  }
+
   labels = var.labels
 }
 
-resource "google_secret_manager_secret_version" "creds_value" {
-  for_each    = var.secrets_input
-  secret      = google_secret_manager_secret.creds[each.key].id
+resource "google_secret_manager_secret_version" "this" {
+  for_each    = local.secrets
+  secret      = google_secret_manager_secret.this[each.key].id
   secret_data = each.value
 }

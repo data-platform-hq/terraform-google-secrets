@@ -1,15 +1,15 @@
 output "secrets_id" {
-  value       = { for k, v in var.secrets_input : k => google_secret_manager_secret_version.creds_value[k].id }
-  description = "The secrets id."
+  value       = { for k, v in local.secrets : k => google_secret_manager_secret.this[k].id if k != null }
+  description = "The id of the secret."
 }
 
 output "secrets_name" {
-  value       = { for k, v in var.secrets_input : k => google_secret_manager_secret.creds[k].name }
+  value       = { for k, v in local.secrets : k => google_secret_manager_secret.this[k].name if k != null }
   description = "The name of the secret."
 }
 
 output "secrets_value" {
-  value       = { for k, v in var.secrets_input : k => google_secret_manager_secret_version.creds_value[k].secret_data }
-  description = "The value of secrets."
+  value       = { for k, v in local.secrets : k => google_secret_manager_secret_version.this[k].secret_data if k != null }
+  description = "The value of secret."
   sensitive   = true
 }
