@@ -18,8 +18,8 @@ variable "prefix" {
 variable "suffix" {
   description = "Suffix for resource names"
   type        = string
-  default     = ""
 }
+
 
 variable "secrets_input" {
   description = "A key/value pair to create a secret. The key will be used for the secret name, the value will be stored as the secret value."
