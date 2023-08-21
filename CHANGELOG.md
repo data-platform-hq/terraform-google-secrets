@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/data-platform-hq/terraform-google-secrets/compare/v1.0.1...v1.1.0) (2023-08-21)
+
+
+### Features
+
+* databricks development ([c637e15](https://github.com/data-platform-hq/terraform-google-secrets/commit/c637e15f5c326ff311b11c5700ccf3708ec5ac28))
+
 ## [1.0.1](https://github.com/data-platform-hq/terraform-google-secrets/compare/v1.0.0...v1.0.1) (2023-01-24)
 
 
